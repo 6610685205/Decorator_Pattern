@@ -1,0 +1,19 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Java source files — LF in repo
+*.java text eol=lf
+
+# Markdown
+*.md text eol=lf
+
+# Windows scripts — CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files — no line ending conversion
+*.class binary
+*.jc binary
+*.jar binary
+*.zip binary
+*.gz binary
