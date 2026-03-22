@@ -90,6 +90,78 @@ java -cp out JCompress a.txt -zip
 
 ## Design Patterns
 
+```mermaid
+classDiagram
+    direction TB
+
+    class Processor {
+        <<abstract>>
+        +String outputPath
+        +execute(byte[] data)*
+    }
+
+    class FileWriteProcessor {
+        +FileWriteProcessor(String outputPath)
+        +execute(byte[] data)
+    }
+
+    class ProcessorDecorator {
+        <<abstract>>
+        #Processor myTrailer
+        +ProcessorDecorator(Processor myTrailer)
+        #callTrailer(byte[] data)
+    }
+
+    class ZipDecorator {
+        +execute(byte[] data)
+    }
+
+    class GzipDecorator {
+        +execute(byte[] data)
+    }
+
+    class DesDecorator {
+        -byte[] DES_KEY
+        +execute(byte[] data)
+    }
+
+    class AesDecorator {
+        -byte[] AES_KEY
+        +execute(byte[] data)
+    }
+
+    class Md5Decorator {
+        +execute(byte[] data)
+    }
+
+    class Sha256Decorator {
+        +execute(byte[] data)
+    }
+
+    class ProcessorFactory {
+        +build(String outputPath, String compression, String encryption, String checksum)$ Processor
+    }
+
+    class JCompress {
+        +main(String[] args)$
+    }
+
+    Processor <|-- FileWriteProcessor : extends
+    Processor <|-- ProcessorDecorator : extends
+    ProcessorDecorator <|-- ZipDecorator : extends
+    ProcessorDecorator <|-- GzipDecorator : extends
+    ProcessorDecorator <|-- DesDecorator : extends
+    ProcessorDecorator <|-- AesDecorator : extends
+    ProcessorDecorator <|-- Md5Decorator : extends
+    ProcessorDecorator <|-- Sha256Decorator : extends
+
+    ProcessorDecorator o-- Processor : myTrailer
+
+    ProcessorFactory ..> Processor : creates
+    JCompress ..> ProcessorFactory : uses
+    JCompress ..> Processor : uses
+```
+
 ### 1. Decorator Pattern (หลัก)
 
 
