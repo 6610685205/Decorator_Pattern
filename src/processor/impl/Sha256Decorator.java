@@ -6,9 +6,6 @@ import processor.ProcessorDecorator;
 import java.security.MessageDigest;
 import java.util.HexFormat;
 
-/**
- * SHA-256 Checksum Decorator
- */
 public class Sha256Decorator extends ProcessorDecorator {
 
     public Sha256Decorator(Processor trailer) {

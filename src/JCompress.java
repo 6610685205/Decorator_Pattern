@@ -3,19 +3,6 @@ import processor.Processor;
 
 import java.nio.file.*;
 
-/**
- * JCompress — CLI tool for compress / encrypt / checksum
- *
- * Design patterns used:
- *   1. Decorator Pattern — chain of processors (compress → encrypt → write)
- *   2. Factory Pattern   — builds the decorator chain from CLI args
- *
- * Usage:
- *   jcompress <file> [-zip|-gzip] [-DES|-AES] [-MD5|-SHA256]
- *
- * Example:
- *   jcompress a.txt -zip -DES -MD5
- */
 public class JCompress {
 
     public static void main(String[] args) throws Exception {

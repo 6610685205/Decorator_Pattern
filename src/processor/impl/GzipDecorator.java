@@ -6,10 +6,6 @@ import processor.ProcessorDecorator;
 import java.io.ByteArrayOutputStream;
 import java.util.zip.GZIPOutputStream;
 
-/**
- * GZIP Compression Decorator
- * Uses Java's GZIPOutputStream (also a Decorator pattern).
- */
 public class GzipDecorator extends ProcessorDecorator {
 
     public GzipDecorator(Processor trailer) {

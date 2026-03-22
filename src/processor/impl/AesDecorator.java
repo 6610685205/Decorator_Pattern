@@ -9,10 +9,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.ByteArrayOutputStream;
 
-/**
- * AES Encryption Decorator
- * Uses AES-128 with CipherOutputStream.
- */
 public class AesDecorator extends ProcessorDecorator {
 
     private static final byte[] AES_KEY = "JavaAESKey123456".getBytes(); // 16 bytes

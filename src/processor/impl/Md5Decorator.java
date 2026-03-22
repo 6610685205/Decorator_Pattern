@@ -6,10 +6,6 @@ import processor.ProcessorDecorator;
 import java.security.MessageDigest;
 import java.util.HexFormat;
 
-/**
- * MD5 Checksum Decorator
- * Computes MD5 hash, prints it, then calls callTrailer() with original data.
- */
 public class Md5Decorator extends ProcessorDecorator {
 
     public Md5Decorator(Processor trailer) {

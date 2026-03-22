@@ -7,11 +7,6 @@ import java.io.ByteArrayOutputStream;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 
-/**
- * ZIP Compression Decorator
- * Uses Java's DeflaterOutputStream (itself a Decorator over OutputStream).
- * Compresses data, then calls callTrailer() to continue the chain.
- */
 public class ZipDecorator extends ProcessorDecorator {
 
     public ZipDecorator(Processor trailer) {

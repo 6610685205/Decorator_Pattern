@@ -9,13 +9,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.ByteArrayOutputStream;
 
-/**
- * DES Encryption Decorator
- * Uses Java's CipherOutputStream (FilterOutputStream subclass → Decorator).
- *
- * Note: DES uses a fixed 8-byte key here for demo purposes.
- *       In production, use proper key management.
- */
 public class DesDecorator extends ProcessorDecorator {
 
     private static final byte[] DES_KEY = "JavaKey!".getBytes(); // 8 bytes

@@ -4,22 +4,6 @@ import processor.Processor;
 import processor.FileWriteProcessor;
 import processor.impl.*;
 
-/**
- * Factory Pattern
- *
- * Builds the decorator chain at runtime based on CLI arguments.
- * The chain is assembled inside-out:
- *   FileWriteProcessor (innermost — concrete component)
- *   → wrapped by encryption decorator
- *   → wrapped by compression decorator
- *   → wrapped by checksum decorator (outermost)
- *
- * Example: jcompress a.txt -zip -DES -MD5
- *   Md5Decorator( ZipDecorator( DesDecorator( FileWriteProcessor ) ) )
- *
- * Calling execute() on the outermost:
- *   MD5 computed → data compressed (ZIP) → encrypted (DES) → written to file
- */
 public class ProcessorFactory {
 
     public static Processor build(String outputPath,
